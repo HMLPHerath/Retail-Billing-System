@@ -5,51 +5,52 @@ root = Tk()
 root.title('Retail Billing System')
 root.geometry('1270x685')
 root.iconbitmap('icon.ico')
+root.configure(bg='gray20')
 
 # Retail Billing System
-headingLable = Label(root,text='Retail Billing System',font=('times new roman',30,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
+headingLable = Label(root,text='Retail Billing System',font=('times new roman',30,'bold'),bg='gray20',fg='gold',bd=10,pady=10,relief=GROOVE)
 headingLable.pack(fill=X)
 
 # Customer Details
 customer_deatails_labelFrame = LabelFrame(root,text='Customer Details',font=('times new roman',15,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
-customer_deatails_labelFrame.pack(fill=X)
+customer_deatails_labelFrame.pack(fill=X,pady=7)
 
 # Name
 nameLabel = Label(customer_deatails_labelFrame,text='Name : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
-nameLabel.grid(row=0, column=0,padx=20,pady=2)
+nameLabel.grid(row=0, column=0,padx=(20,10),pady=2)
 
 nameEntry = Entry(customer_deatails_labelFrame,font=('arial',15),bd=7,width=18)
-nameEntry.grid(row=0,column=1,padx=8)
+nameEntry.grid(row=0,column=1,padx=(0,8))
 
 # Phone Number
 phoneLabel = Label(customer_deatails_labelFrame,text='Phone Number : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
-phoneLabel.grid(row=0,column=2,padx=20,pady=2)
+phoneLabel.grid(row=0,column=2,padx=(20,10),pady=2)
 
 phoneEntry = Entry(customer_deatails_labelFrame,font=('arial',15),bd=7,width=18)
-phoneEntry.grid(row=0,column=3,padx=8)
+phoneEntry.grid(row=0,column=3,padx=(0,8))
 
 # Bill Number
 billLabel = Label(customer_deatails_labelFrame,text='Bill Number : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
-billLabel.grid(row=0,column=4,padx=20,pady=2)
+billLabel.grid(row=0,column=4,padx=(20,10),pady=2)
 
 billEntry = Entry(customer_deatails_labelFrame,font=('arial',15),bd=7,width=18)
-billEntry.grid(row=0,column=5,padx=8)
+billEntry.grid(row=0,column=5,padx=(0,8))
 
 # Search Button
 searchButton = Button(customer_deatails_labelFrame,text='SEARCH',font=('arial',12,'bold'),bd=7,width=10)
-searchButton.grid(row=0,column=6,padx=20,pady=8)
+searchButton.grid(row=0,column=6,padx=50,pady=8)
 
 
 
 # Product Frame
-productFrame = Frame(root)
-productFrame.pack()
+productFrame = Frame(root,bg='gray20')
+productFrame.pack(fill=X,)
 
 
 
 # Cosmatic
 cosmaticFrame = LabelFrame(productFrame,text='Cosmatic',font=('times new roman',15,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
-cosmaticFrame.grid(row=0,column=0)
+cosmaticFrame.grid(row=0,column=0,padx=10)
 
 # Bath Soap
 bathSoapLabel = Label(cosmaticFrame,text='Bath Sope : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
@@ -97,7 +98,7 @@ bodyLotionEntry.grid(row=5,column=1,pady=9,padx=10)
 
 # Grocery Frame
 groceryFrame = LabelFrame(productFrame,text='Grocery',font=('times new roman',15,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
-groceryFrame.grid(row=0,column=1)
+groceryFrame.grid(row=0,column=1,padx=10)
 
 # Rice
 riceLabel = Label(groceryFrame,text='Rice : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
@@ -142,9 +143,9 @@ teaEntry = Entry(groceryFrame,font=('arial',15),bd=7,width=10)
 teaEntry.grid(row=5,column=1,pady=9,padx=10,sticky='w')
 
 
-# Grocery Frame
+# Cold Drinks Frame
 coldDrinksFrame = LabelFrame(productFrame,text='Cold Drinks',font=('times new roman',15,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
-coldDrinksFrame.grid(row=0,column=2)
+coldDrinksFrame.grid(row=0,column=2,padx=10)
 
 
 # Maaza
@@ -192,7 +193,7 @@ cocaColaEntry.grid(row=5,column=1,pady=9,padx=10,sticky='w')
 
 # Bill Area
 billFrame = Frame(productFrame,bd=8,relief=GROOVE)
-billFrame.grid(row=0,column=3)
+billFrame.grid(row=0,column=3,padx=50,pady=7)
 
 scrollbar = Scrollbar(billFrame,orient=VERTICAL)
 scrollbar.pack(side=RIGHT,fill=Y)
@@ -205,5 +206,80 @@ billText.pack()
 
 
 scrollbar.config(command=billText.yview)
+
+
+# Bill Menu
+billMenuLabelFrame = LabelFrame(root,text='Bill Menu',font=('times new roman',15,'bold'),bg='gray20',fg='gold',bd=10,relief=GROOVE)
+billMenuLabelFrame.pack(fill=X)
+
+# Cosmaic Price
+cosmaticPriceLabel = Label(billMenuLabelFrame,text='Cosmaic Price : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+cosmaticPriceLabel.grid(row=0,column=0,pady=9,padx=(20,10),sticky='w')
+
+cosmaticPriceEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+cosmaticPriceEntry.grid(row=0,column=1,pady=9,padx=10,sticky='w')
+
+# Grocery Price
+groceryPriceLabel = Label(billMenuLabelFrame,text='Grocery Price : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+groceryPriceLabel.grid(row=1,column=0,pady=9,padx=(20,10),sticky='w')
+
+groceryPriceEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+groceryPriceEntry.grid(row=1,column=1,pady=9,padx=10,sticky='w')
+
+# Cold Drinks Price
+coldDrinksPriceLabel = Label(billMenuLabelFrame,text='Cold Drinks Price : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+coldDrinksPriceLabel.grid(row=2,column=0,pady=9,padx=(20,10),sticky='w')
+
+coldDrinksPriceEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+coldDrinksPriceEntry.grid(row=2,column=1,pady=9,padx=10,sticky='w')
+
+# Cosmatic Tax
+cosmaticTaxLabel = Label(billMenuLabelFrame,text='Cosmatic Tax : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+cosmaticTaxLabel.grid(row=0,column=2,pady=9,padx=(20,10),sticky='w')
+
+cosmaticTaxEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+cosmaticTaxEntry.grid(row=0,column=3,pady=9,padx=10,sticky='w')
+
+# Grocery Tax
+groceryTaxLabel = Label(billMenuLabelFrame,text='Grocery Tax : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+groceryTaxLabel.grid(row=1,column=2,pady=9,padx=(20,10),sticky='w')
+
+groceryTaxEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+groceryTaxEntry.grid(row=1,column=3,pady=9,padx=10,sticky='w')
+
+# Cold Drinks Tax
+coldDrinksTaxLabel = Label(billMenuLabelFrame,text='Cold Drinks Tax : ',font=('times new roman',15,'bold'),bg='gray20',fg='white')
+coldDrinksTaxLabel.grid(row=2,column=2,pady=9,padx=(20,10),sticky='w')
+
+coldDrinksTaxEntry = Entry(billMenuLabelFrame,font=('arial',15),bd=7,width=10)
+coldDrinksTaxEntry.grid(row=2,column=3,pady=9,padx=10,sticky='w')
+
+
+
+# Buttons
+buttonFrame = Frame(billMenuLabelFrame,bd=8,relief=GROOVE)
+buttonFrame.grid(row=0,column=4,rowspan=3,padx=60)
+
+# Total Button
+totalButton = Button(buttonFrame,text='Total',font=('arial',16,'bold'),bg='gray20',fg='white',bd=5,width=8)
+totalButton.grid(row=0,column=0,padx=5,pady=20)
+
+# Bill Button
+billButton = Button(buttonFrame,text='Bill',font=('arial',16,'bold'),bg='gray20',fg='white',bd=5,width=8)
+billButton.grid(row=0,column=1,padx=5,pady=20)
+
+# Email Button
+emailButton = Button(buttonFrame,text='Email',font=('arial',16,'bold'),bg='gray20',fg='white',bd=5,width=8)
+emailButton.grid(row=0,column=2,padx=5,pady=20)
+
+# Print Button
+printButton = Button(buttonFrame,text='Print',font=('arial',16,'bold'),bg='gray20',fg='white',bd=5,width=8)
+printButton.grid(row=0,column=3,padx=5,pady=20)
+
+# Clear Button
+clearButton = Button(buttonFrame,text='Clear',font=('arial',16,'bold'),bg='gray20',fg='white',bd=5,width=8)
+clearButton.grid(row=0,column=4,padx=5,pady=20)
+
+
 
 root.mainloop()
